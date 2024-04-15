@@ -1,5 +1,6 @@
 import pytest
-
+pytestmark = pytest.mark.math
+ 
 products = [
     (2, 3, 6),
     (99, 1, 99),
@@ -9,22 +10,18 @@ products = [
     (2.5, 6.7, 16.75)
 ]
 
-
 @pytest.mark.parametrize('a,b,product', products)
 def test_multiplication(a, b, product):
     assert a*b == product
 
-
 def test_one_plus_one():
     assert 1+1 == 2
-
 
 def test_one_plus_two():
     a = 1
     b = 2
-    c = 0
-    assert a+b == 0
-
+    c = 3
+    assert a+b == 3
 
 def test_divide_by_zero():
     with pytest.raises(ZeroDivisionError) as e:
